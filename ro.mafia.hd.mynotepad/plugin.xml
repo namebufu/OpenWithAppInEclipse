@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="ro.mafia.hd.mynotepad.NotepadPreferencePage"
+            id="myNotepad.notepadpage"
+            name="Notepad">
+      </page>
+   </extension>
+   <extension
+         id="open.notepad.cmd"
+         name="Open Notepad Command"
+         point="org.eclipse.ui.commands">
+      <category
+            id="myNotepad.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="myNotepad.commands.category"
+            id="myNotepad.commands.sampleCommand"
+            name="Sample Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="ro.mafia.hd.mynotepad.handlers.SampleHandler"
+            commandId="myNotepad.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.OpenWithMenu">
+         <toolbar
+               id="myNotepad.toolbars.sampleToolbar">
+            <command
+                  commandId="myNotepad.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  id="myNotepad.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+               <visibleWhen
+                     checkEnabled="true">
+               </visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
